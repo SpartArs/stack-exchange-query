@@ -3,7 +3,7 @@ package com.spartars.stackexchange.controller;
 import com.spartars.stackexchange.converter.QuestionConverter;
 import com.spartars.stackexchange.model.StackExchangeQuery;
 import com.spartars.stackexchange.model.StackExchangeQuestion;
-import com.spartars.stackexchange.question.QuestionQuery;
+import com.spartars.stackexchange.request.QuestionQuery;
 import com.spartars.stackexchange.util.UrlBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

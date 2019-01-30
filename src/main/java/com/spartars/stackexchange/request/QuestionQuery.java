@@ -1,4 +1,4 @@
-package com.spartars.stackexchange.question;
+package com.spartars.stackexchange.request;
 
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -17,8 +17,7 @@ public class QuestionQuery {
         HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(
                 HttpClientBuilder.create().build());
         RestTemplate restTemplate = new RestTemplate(clientHttpRequestFactory);
-        String result = restTemplate.getForObject(this.url, String.class);
 
-        return result;
+        return restTemplate.getForObject(this.url, String.class);
     }
 }
