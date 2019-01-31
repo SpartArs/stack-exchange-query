@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +20,13 @@
             <th>Owner</th>
         </tr>
         <c:forEach items="${questions}" var="question">
-            <tr>
+            <c:if test="${question.answered}">
+                <c:set value="row-answered" var="rowquestion"/>
+            </c:if>
+            <c:if test="${!question.answered}">
+                <c:set value="row-unanswered" var="rowquestion"/>
+            </c:if>
+            <tr class=${rowquestion}>
                 <td>${question.creationDate}</td>
                 <td><a href="${question.link}" target="_blank"/>${question.title}</td>
                 <td>${question.owner}</td>

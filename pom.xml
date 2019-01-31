@@ -11,7 +11,6 @@
     <properties>
         <jdk>1.8</jdk>
         <spring.version>4.3.10.RELEASE</spring.version>
-        <jackson.version>2.9.2</jackson.version>
     </properties>
 
     <build>

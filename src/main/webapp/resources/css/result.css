@@ -15,7 +15,6 @@
     word-break: normal;
     border-color: #ccc;
     color: #333;
-    background-color: #fff;
 }
 
 .table-questions th {
@@ -34,4 +33,12 @@
 
 .table-questions .tg-4eph {
     background-color: #f9f9f9
+}
+
+.row-answered {
+    background-color: #DCDCDC;
+}
+
+.row-unanswered {
+    background-color: #FFFFFF;
 }
