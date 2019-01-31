@@ -1,4 +1,4 @@
-##### Stack Exchange Query
+### Stack Exchange Query
 
 * * *
 
