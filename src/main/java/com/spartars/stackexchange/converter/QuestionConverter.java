@@ -9,10 +9,18 @@ import java.util.*;
 
 public class QuestionConverter {
 
+    private static final String ITEMS = "items";
+    private static final String QUESTION_AUTHOR = "owner";
+    private static final String QUESTION_AUTHOR_NAME = "display_name";
+    private static final String QUESTION_TITLE = "title";
+    private static final String QUESTION_CREATION_DATE = "creation_date";
+    private static final String QUESTION_IS_ANSWERED = "is_answered";
+    private static final String QUESTION_LINK = "link";
+
     public static List<StackExchangeQuestion> getStackExchangeQuestions(String response) {
-        List<StackExchangeQuestion> questions = new ArrayList<StackExchangeQuestion>();
+        List<StackExchangeQuestion> questions = new ArrayList<>();
         JSONObject jsonResponse = new JSONObject(response);
-        JSONArray items = jsonResponse.getJSONArray("items");
+        JSONArray items = jsonResponse.getJSONArray(ITEMS);
 
         for (int i = 0; i < items.length(); i++) {
             JSONObject jsonObject = items.getJSONObject(i);
@@ -23,14 +31,14 @@ public class QuestionConverter {
     }
 
     private static StackExchangeQuestion convertToStackExchangeQuestion(JSONObject questionJSON) {
-        JSONObject owner = (JSONObject) questionJSON.get("owner");
-        String title = (String) questionJSON.get("title");
-        String ownerName = (String) owner.get("display_name");
+        JSONObject owner = (JSONObject) questionJSON.get(QUESTION_AUTHOR);
+        String title = (String) questionJSON.get(QUESTION_TITLE);
+        String ownerName = (String) owner.get(QUESTION_AUTHOR_NAME);
         Calendar calendar = new GregorianCalendar();
-        calendar.setTimeInMillis(((int) questionJSON.get("creation_date")) * 1000L);
+        calendar.setTimeInMillis(((int) questionJSON.get(QUESTION_CREATION_DATE)) * 1000L);
         String creationDate = DateUtil.formatDate(calendar.getTime());
-        boolean isAnswered = (boolean) questionJSON.get("is_answered");
-        String link = (String) questionJSON.get("link");
+        boolean isAnswered = (boolean) questionJSON.get(QUESTION_IS_ANSWERED);
+        String link = (String) questionJSON.get(QUESTION_LINK);
 
         return new StackExchangeQuestion(title, ownerName, creationDate, isAnswered, link);
     }

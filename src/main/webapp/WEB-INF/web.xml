@@ -6,7 +6,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/config/application-context.xml</param-value>
+        <param-value>/WEB-INF/config/dispatcher-servlet.xml</param-value>
     </context-param>
 
     <servlet>

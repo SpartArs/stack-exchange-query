@@ -17,7 +17,7 @@
         <tr>
             <th>Creation Date</th>
             <th>Title</th>
-            <th>Owner</th>
+            <th>Author</th>
         </tr>
         <c:forEach items="${questions}" var="question">
             <c:if test="${question.answered}">
